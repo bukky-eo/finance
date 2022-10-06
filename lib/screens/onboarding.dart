@@ -55,8 +55,8 @@ class _OnboardingState extends State<Onboarding> {
                   width: screenWidth,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('images/welcome.jpg'),
-                          fit: BoxFit.fill),
+                          image: AssetImage('images/welcome.png'),
+                          fit: BoxFit.cover),
                       color: Colors.transparent),
                 ),
                 const Text(
@@ -74,18 +74,18 @@ class _OnboardingState extends State<Onboarding> {
                       fontWeight: FontWeight.w400),
                 ),
                 Container(
-                  padding: EdgeInsets.all(6),
+                  padding: const EdgeInsets.all(6),
                   child: SlideAction(
                     borderRadius: 35,
-                    outerColor: Color(0xff303030),
+                    outerColor: const Color(0xff303030),
                     elevation: 0,
-                    innerColor: Color(0xffFF9255),
-                    sliderButtonIcon: Text(
+                    innerColor: const Color(0xffFF9255),
+                    sliderButtonIcon: const Text(
                       'Get started',
                       style: TextStyle(color: Colors.white),
                     ),
-                    textStyle: TextStyle(color: kLightText, fontSize: 26),
-                    text: ' > ',
+                    textStyle: const TextStyle(color: kLightText, fontSize: 26),
+                    text: '     > > > > >',
                     sliderRotate: false,
                     onSubmit: () {
                       Navigator.push(
