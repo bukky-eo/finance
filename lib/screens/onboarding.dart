@@ -12,7 +12,7 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
-  final _controller = PageController();
+  // final _controller = PageController();
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -20,7 +20,7 @@ class _OnboardingState extends State<Onboarding> {
     return Container(
       height: screenHeight,
       width: screenWidth,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           // image: DecorationImage(image: AssetImage('images/welcome.jpg')),
           gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -35,28 +35,39 @@ class _OnboardingState extends State<Onboarding> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-            padding: EdgeInsets.only(top: 35, left: 35, right: 35, bottom: 15),
+            padding:
+                const EdgeInsets.only(top: 45, left: 35, right: 35, bottom: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  // alignment: Alignment.topLeft,
-                  height: 6,
-                  width: 75,
-                  decoration: BoxDecoration(
-                      color: kLightOrange,
-                      borderRadius: BorderRadius.circular(8)),
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    // crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: const [
+                      ScrollIndicator(
+                        color: kLightOrange,
+                      ),
+                      ScrollIndicator(
+                        color: Color(0xff303030),
+                      ),
+                      ScrollIndicator(
+                        color: Color(0xff303030),
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
-                  height: screenHeight / 2,
-                  width: screenWidth,
+                  height: screenHeight / 1.6,
+                  width: double.infinity,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('images/welcome.png'),
-                          fit: BoxFit.cover),
+                          fit: BoxFit.contain),
                       color: Colors.transparent),
                 ),
                 const Text(
@@ -66,12 +77,18 @@ class _OnboardingState extends State<Onboarding> {
                       fontSize: 34,
                       fontWeight: FontWeight.w700),
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
                 const Text(
                   'Your money is safe and growing with us.',
                   style: TextStyle(
                       fontSize: 16,
                       color: kLightText,
                       fontWeight: FontWeight.w400),
+                ),
+                const SizedBox(
+                  height: 15,
                 ),
                 Container(
                   padding: const EdgeInsets.all(6),
@@ -85,7 +102,7 @@ class _OnboardingState extends State<Onboarding> {
                       style: TextStyle(color: Colors.white),
                     ),
                     textStyle: const TextStyle(color: kLightText, fontSize: 26),
-                    text: '     > > > > >',
+                    text: '>  >  >  >  >',
                     sliderRotate: false,
                     onSubmit: () {
                       Navigator.push(
@@ -98,6 +115,26 @@ class _OnboardingState extends State<Onboarding> {
               ],
             )),
       ),
+    );
+  }
+}
+
+class ScrollIndicator extends StatelessWidget {
+  final Color color;
+  const ScrollIndicator({
+    Key? key,
+    required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 15, left: 6, right: 6, bottom: 1),
+      // alignment: Alignment.topLeft,
+      height: 6,
+      width: 75,
+      decoration:
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
     );
   }
 }
