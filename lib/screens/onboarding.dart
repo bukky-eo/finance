@@ -43,7 +43,7 @@ class _OnboardingState extends State<Onboarding> {
                 SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     // crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: const [
                       ScrollIndicator(
@@ -62,7 +62,7 @@ class _OnboardingState extends State<Onboarding> {
                   height: 15,
                 ),
                 Container(
-                  height: screenHeight / 1.6,
+                  height: screenHeight / 2,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -102,7 +102,7 @@ class _OnboardingState extends State<Onboarding> {
                       style: TextStyle(color: Colors.white),
                     ),
                     textStyle: const TextStyle(color: kLightText, fontSize: 26),
-                    text: '>  >  >  >  >',
+                    text: '   >  >  >  >',
                     sliderRotate: false,
                     onSubmit: () {
                       Navigator.push(
